@@ -27,6 +27,11 @@ class _NoticiasScreenState extends State<NoticiasScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Image.asset('assets/whats.png'),
+        tooltip: 'Compartilhar no WhatsApp',
+      ),
       body: Column(
         children: <Widget>[
           Stack(

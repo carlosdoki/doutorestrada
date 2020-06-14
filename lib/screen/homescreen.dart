@@ -69,6 +69,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
+                  Container(
+                    child: Text(
+                      'Trajeto: São Paulo - Rio de Janeiro',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -158,12 +166,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 FidelidadeScreen.id,
               );
               break;
-            case 2:
-              Navigator.pushNamed(
-                context,
-                MapaScreen.id,
-              );
-              break;
+            // case 2:
+            //   Navigator.pushNamed(
+            //     context,
+            //     MapaScreen.id,
+            //   );
+            //   break;
           }
           setState(() {
             _page = index;

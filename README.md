@@ -1,6 +1,6 @@
-# doutorestrada
+# Doutor Estrada
 
-A new Flutter project.
+Hackathon CCR 2020.
 
 ## Getting Started
 

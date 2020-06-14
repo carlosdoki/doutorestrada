@@ -1,10 +1,16 @@
 import 'package:doutorestrada/screen/postosscreen.dart';
-import 'package:doutorestrada/screen/postosscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:doutorestrada/models/postos_model.dart';
 
-class PostosCarrousel extends StatelessWidget {
+class PostosCarrousel extends StatefulWidget {
+  @override
+  _PostosCarrouselState createState() => _PostosCarrouselState();
+}
+
+class _PostosCarrouselState extends State<PostosCarrousel> {
+  int km = 1;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +34,34 @@ class PostosCarrousel extends StatelessWidget {
           ),
         ),
         Container(
-          height: 300.0,
+          child: Column(
+            children: <Widget>[
+              Text('Distancia ao redor da rodovia ${km} km'),
+              SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  inactiveTrackColor: Color(0xFF8D8E98),
+                  activeTrackColor: Colors.white,
+                  thumbColor: Color(0xFFEB1555),
+                  overlayColor: Color(0x29EB1555),
+                  thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                  overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
+                ),
+                child: Slider(
+                  value: km.toDouble(),
+                  min: 1.0,
+                  max: 100.0,
+                  onChanged: (double newValue) {
+                    setState(() {
+                      km = newValue.round();
+                    });
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+          height: 150.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: postos.length,
