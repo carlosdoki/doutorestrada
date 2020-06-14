@@ -4,6 +4,8 @@ import 'package:doutorestrada/screen/loginscreen.dart';
 import 'package:doutorestrada/screen/mapascreen.dart';
 import 'package:doutorestrada/screen/noticiasscreen.dart';
 import 'package:doutorestrada/screen/postosscreen.dart';
+import 'package:doutorestrada/screen/resgatescreen.dart';
+import 'package:doutorestrada/screen/splashscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginScreen.id,
+      initialRoute: SplashScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         FidelidadeScreen.id: (context) => FidelidadeScreen(),
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         PostosScreen.id: (context) => PostosScreen(),
         MapaScreen.id: (context) => MapaScreen(),
         LoginScreen.id: (context) => LoginScreen(),
+        SplashScreen.id: (context) => SplashScreen(),
+        ResgateScreen.id: (context) => ResgateScreen(),
         // MapScreen.id: (context) => MapScreen(),
       },
     );

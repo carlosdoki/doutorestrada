@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:doutorestrada/models/transaction_model.dart';
 import 'package:doutorestrada/screen/homescreen.dart';
+import 'package:doutorestrada/screen/resgatescreen.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class FidelidadeScreen extends StatefulWidget {
@@ -22,7 +24,9 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
         elevation: 0.0,
         backgroundColor: Color(0xFF366D83),
         leading: IconButton(
-          icon: const Icon(Icons.menu),
+          icon: const Icon(
+            Icons.menu,
+          ),
           iconSize: 28.0,
           onPressed: () {},
         ),
@@ -83,13 +87,72 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
                         fontWeight: FontWeight.w500,
                         color: Colors.black),
                   ),
-                  Text(
-                    'Amanda Alex',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black),
-                  )
+                  FlatButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, ResgateScreen.id);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      height: 200,
+                      width: 300,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Posto 1',
+                            style: TextStyle(
+                                fontSize: 18.0, fontWeight: FontWeight.w300),
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -171,17 +234,17 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
                           )
                         ],
                       ),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            transactions[index].amount,
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.blue),
-                          )
-                        ],
-                      )
+                      // Row(
+                      //   children: <Widget>[
+                      //     Text(
+                      //       transactions[index].amount,
+                      //       style: TextStyle(
+                      //           fontSize: 15,
+                      //           fontWeight: FontWeight.w700,
+                      //           color: Colors.blue),
+                      //     )
+                      //   ],
+                      // )
                     ],
                   ),
                 );

@@ -79,7 +79,7 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                 ),
                 child: Container(
                   margin: EdgeInsets.all(10.0),
-                  width: 210.0,
+                  width: 220.0,
                   child: Stack(
                     alignment: Alignment.topCenter,
                     children: <Widget>[
@@ -87,7 +87,7 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                         bottom: 15.0,
                         child: Container(
                           height: 120.0,
-                          width: 200.0,
+                          width: 210.0,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
@@ -98,8 +98,22 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
+                                Icon(Icons.local_gas_station),
                                 Text(
                                   posto.nome,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  'Rodovia: ${posto.rodovia}, ${posto.km.toString()}',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Text(
+                                  'Cidade: ${posto.municipio} - ${posto.uf}',
                                   style: TextStyle(
                                     color: Colors.black,
                                   ),

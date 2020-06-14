@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:doutorestrada/models/postos_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PostosScreen extends StatefulWidget {
   static String id = 'postos_screen';
@@ -15,6 +16,19 @@ class PostosScreen extends StatefulWidget {
 }
 
 class _PostosScreenState extends State<PostosScreen> {
+  bool isSwitched = true;
+  GoogleMapController mapController;
+
+  // final LatLng _center = const LatLng(45.521563, -122.677433);
+  //  latitude: -22.5604362,
+  //  longitude: -44.1435899,
+  // final LatLng _center =
+  //     LatLng(postos.latitude, postos.latitude);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   Text _buildRatingStars(int rating) {
     String stars = '';
     for (int i = 0; i < rating; i++) {
@@ -26,18 +40,20 @@ class _PostosScreenState extends State<PostosScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var _center = LatLng(widget.postos.latitude, widget.postos.longitude);
+
     return Scaffold(
       body: Column(
         children: <Widget>[
           Stack(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.width,
+                height: 300,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black26,
+                      color: Color(0xFF366D83),
                       offset: Offset(0.0, 2.0),
                       blurRadius: 6.0,
                     )
@@ -57,34 +73,32 @@ class _PostosScreenState extends State<PostosScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 10.0,
-                  vertical: 40.0,
+                  vertical: 30.0,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     IconButton(
-                      icon: Icon(Icons.arrow_back),
+                      icon: Icon(Icons.close),
                       iconSize: 30.0,
                       color: Colors.black,
                       onPressed: () => Navigator.pop(context),
                     ),
-                    Row(
-                      children: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.search),
-                          iconSize: 30.0,
-                          color: Colors.black,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        IconButton(
-                          icon: Icon(FontAwesomeIcons.sortAmountDown),
-                          iconSize: 25.0,
-                          color: Colors.black,
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      ],
-                    )
                   ],
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context)
+                    .size
+                    .width, // or use fixed size like 200
+                height: 200,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 80),
+                  child: GoogleMap(
+                    mapType: MapType.normal,
+                    initialCameraPosition:
+                        CameraPosition(target: _center, zoom: 15),
+                  ),
                 ),
               ),
               Positioned(
@@ -97,10 +111,12 @@ class _PostosScreenState extends State<PostosScreen> {
                       widget.postos.nome,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 35.0,
+                        fontSize: 25.0,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 1.2,
                       ),
+                      maxLines: 2,
+                      softWrap: true,
                     ),
                   ],
                 ),
@@ -120,7 +136,7 @@ class _PostosScreenState extends State<PostosScreen> {
             child: Stack(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                  margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
                   height: double.infinity,
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -129,17 +145,108 @@ class _PostosScreenState extends State<PostosScreen> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.all(10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          widget.postos.avaliacao.toStringAsFixed(1),
-                          style: TextStyle(
-                            fontSize: 20.0,
+                    child: Container(
+                      margin: EdgeInsets.zero,
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Text(
+                                widget.postos.avaliacao.toStringAsFixed(1),
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                              _buildRatingStars(
+                                  widget.postos.avaliacao.round()),
+                              SizedBox(
+                                width: 60.0,
+                              ),
+                              Text(
+                                'Favorito',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                              Switch(
+                                value: true,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isSwitched = value;
+                                  });
+                                },
+                                activeTrackColor: Colors.lightGreenAccent,
+                                activeColor: Colors.green,
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Text(
+                                'Estacionamento',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Text(
+                                'Area de descanço',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Text(
+                                'Restaurante',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: true,
+                                onChanged: null,
+                              ),
+                              Text(
+                                'Hotel',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

@@ -14,7 +14,7 @@ List<TransactionModel> transactions = transactionData
 
 var transactionData = [
   {
-    "name": "Uber Ride",
+    "name": "Posto 1",
     "photo": "assets/images/uber_photo.png",
     "date": "1st Apr 2020",
     "amount": "-\$35.214"
