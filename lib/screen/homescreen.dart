@@ -70,15 +70,56 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   Container(
-                    child: Text(
-                      'Trajeto: São Paulo - Rio de Janeiro',
+                    child: Row(
+                      children: <Widget>[
+                       Text(
+                        'Trajeto:',
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
                     ),
+                        SizedBox(
+                          width: 10,
                   ),
+                        Container(
+                          width: 20.0,
+                            child: TextField(
+                              decoration:  InputDecoration.collapsed(
+                                  hintText: 'Origem',
+                              ),
+                              style: TextStyle(
+                                fontSize: 20.0,
+                              ),
+                            ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          '-',
+                          style: TextStyle(
+                          fontSize: 20.0,
+                        ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: 20.0,
+                          child: TextField(
+                            decoration:  InputDecoration.collapsed(
+                                hintText: 'Destino',
+                            ),
+                            style: TextStyle(
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ),
                 ],
               ),
+            ),
+                ],
+          ),
             ),
           ),
           SliverToBoxAdapter(
