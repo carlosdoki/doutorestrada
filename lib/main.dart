@@ -1,5 +1,6 @@
 import 'package:doutorestrada/screen/fidelidadescreen.dart';
 import 'package:doutorestrada/screen/homescreen.dart';
+import 'package:doutorestrada/screen/loginscreen.dart';
 import 'package:doutorestrada/screen/mapascreen.dart';
 import 'package:doutorestrada/screen/noticiasscreen.dart';
 import 'package:doutorestrada/screen/postosscreen.dart';
@@ -16,13 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.id,
+      initialRoute: LoginScreen.id,
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
         FidelidadeScreen.id: (context) => FidelidadeScreen(),
         NoticiasScreen.id: (context) => NoticiasScreen(),
         PostosScreen.id: (context) => PostosScreen(),
         MapaScreen.id: (context) => MapaScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
         // MapScreen.id: (context) => MapScreen(),
       },
     );
