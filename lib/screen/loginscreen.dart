@@ -282,7 +282,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Image(
-                        image: AssetImage('assets/doutorestrada.jpg'),
+                        image: AssetImage('assets/doutorestrada.png'),
                         width: 100.0,
                         height: 100.0,
                       ),

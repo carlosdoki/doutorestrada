@@ -29,6 +29,7 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,
                 ),
+                maxLines: 2,
               ),
             ],
           ),
@@ -41,8 +42,8 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                 data: SliderTheme.of(context).copyWith(
                   inactiveTrackColor: Color(0xFF8D8E98),
                   activeTrackColor: Colors.white,
-                  thumbColor: Color(0xFFEB1555),
-                  overlayColor: Color(0x29EB1555),
+                  thumbColor: Color(0xFF366D83),
+                  overlayColor: Color(0xFF5CE1E6),
                   thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
                   overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
                 ),
