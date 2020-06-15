@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: <Widget>[
           SliverToBoxAdapter(
             child: Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 color: Color(0xFF366D83),
                 borderRadius: BorderRadius.only(
@@ -61,20 +61,78 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                       var userDocument = snapshot.data.documents;
                       return Text(
-                        userDocument[0]['nome'],
+                        'Olá ${userDocument[0]['nome']} qual o trajeto?',
                         style: const TextStyle(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 1.5,
                         ),
                       );
                     },
                   ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                   Container(
-                    child: Text(
-                      'Trajeto: São Paulo - Rio de Janeiro',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                      ),
+                    child: Row(
+                      children: <Widget>[
+                        Text(
+                          'Trajeto:',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: 125.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: TextField(
+                            textAlign: TextAlign.start,
+                            decoration: InputDecoration.collapsed(
+                              hintText: ' Origem',
+                            ),
+                            style: TextStyle(
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          '-',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: 125.0,
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: TextField(
+                            textAlign: TextAlign.start,
+                            decoration: InputDecoration.collapsed(
+                              hintText: ' Destino',
+                            ),
+                            style: TextStyle(
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -148,10 +206,30 @@ class _HomeScreenState extends State<HomeScreen> {
         index: 0,
         height: 60.0,
         items: <Widget>[
-          Icon(Icons.home, size: 30),
-          Icon(Icons.account_balance_wallet, size: 30),
-          Icon(Icons.info, size: 30),
-          Icon(Icons.perm_identity, size: 30),
+          IconButton(
+            icon: Icon(Icons.home, size: 30),
+            // onPressed: () {
+            //   MaterialPageRoute(builder: (context) => null);
+            // },
+          ),
+          IconButton(
+            icon: Icon(Icons.account_balance_wallet, size: 30),
+            // onPressed: () {
+            //   MaterialPageRoute(builder: (context) => null);
+            // },
+          ),
+          IconButton(
+            icon: Icon(Icons.info, size: 30),
+            // onPressed: () {
+            //   MaterialPageRoute(builder: (context) => null);
+            // },
+          ),
+          IconButton(
+            icon: Icon(Icons.perm_identity, size: 30),
+            onPressed: () {
+              MaterialPageRoute(builder: (context) => null);
+            },
+          ),
         ],
         color: Colors.white,
         buttonBackgroundColor: Colors.white,

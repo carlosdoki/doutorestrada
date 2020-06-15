@@ -35,7 +35,7 @@ dependencies:
   curved_navigation_bar: ^0.3.2
   google_maps_flutter: ^0.4.0
   cloud_firestore: ^0.13.6
-
+  flare_flutter: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +59,9 @@ flutter:
     - assets/facebook.png
     - assets/google_logo.png
     - assets/doutorestrada.png
+    - assets/PPD.jpeg
+    - assets/truck_check.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

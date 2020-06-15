@@ -58,7 +58,7 @@ final List<Postos> postos = [
     ppd: 1,
   ),
   Postos(
-    avaliacao: 3.9,
+    avaliacao: 2.0,
     nome: 'POSTO SOL DA DUTRA',
     municipio: 'Resende',
     uf: 'RJ',
@@ -69,7 +69,7 @@ final List<Postos> postos = [
     ppd: 1,
   ),
   Postos(
-    avaliacao: 3.6,
+    avaliacao: 3.0,
     nome: 'Posto Barnabes',
     municipio: 'Juquitiba',
     uf: 'SP',

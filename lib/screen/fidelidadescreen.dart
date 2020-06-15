@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:doutorestrada/models/transaction_model.dart';
 import 'package:doutorestrada/screen/homescreen.dart';
+import 'package:doutorestrada/screen/resgatescreen.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 class FidelidadeScreen extends StatefulWidget {
@@ -22,7 +24,9 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
         elevation: 0.0,
         backgroundColor: Color(0xFF366D83),
         leading: IconButton(
-          icon: const Icon(Icons.menu),
+          icon: const Icon(
+            Icons.menu,
+          ),
           iconSize: 28.0,
           onPressed: () {},
         ),
@@ -79,17 +83,10 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
                   Text(
                     'Fidelidade',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
-                  Text(
-                    'Amanda Alex',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.black),
-                  )
                 ],
               ),
             ),
@@ -115,7 +112,7 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Container(
-                  height: 76,
+                  height: 150,
                   margin: EdgeInsets.only(bottom: 13),
                   padding:
                       EdgeInsets.only(left: 24, top: 12, bottom: 12, right: 22),
@@ -131,126 +128,128 @@ class _FidelidadeScreenState extends State<FidelidadeScreen> {
                       )
                     ],
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            height: 57,
-                            width: 57,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              // image: DecorationImage(
-                              //   image: AssetImage(transactions[index].photo),
-                              // ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 13,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                transactions[index].name,
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.black),
-                              ),
-                              Text(
-                                transactions[index].date,
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.grey),
-                              )
-                            ],
-                          )
-                        ],
+                  child: GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => ResgateScreen(),
                       ),
-                      Row(
-                        children: <Widget>[
-                          Text(
-                            transactions[index].amount,
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.blue),
-                          )
-                        ],
-                      )
-                    ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              height: 57,
+                              width: 57,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                // image: DecorationImage(
+                                //   image: AssetImage(transactions[index].photo),
+                                // ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 13,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  transactions[index].name,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      height: 60.0,
+                                      width: 60.0,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black26,
+                                              offset: Offset(0, 2),
+                                              blurRadius: 6.0,
+                                            ),
+                                          ],
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/truck_check.png'),
+                                          )),
+                                    ),
+                                    Container(
+                                      height: 60.0,
+                                      width: 60.0,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black26,
+                                              offset: Offset(0, 2),
+                                              blurRadius: 6.0,
+                                            ),
+                                          ],
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/truck_check.png'),
+                                          )),
+                                    ),
+                                    Container(
+                                      height: 60.0,
+                                      width: 60.0,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black26,
+                                              offset: Offset(0, 2),
+                                              blurRadius: 6.0,
+                                            ),
+                                          ],
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                'assets/truck_check.png'),
+                                          )),
+                                    ),
+                                    Container(
+                                      height: 60.0,
+                                      width: 60.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black26,
+                                            offset: Offset(0, 2),
+                                            blurRadius: 6.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
             ),
           ),
-
-          // SliverToBoxAdapter(
-          //   child: Container(
-          //     padding: const EdgeInsets.all(20.0),
-          //     child: NoticiasCarrousel(),
-          //   ),
-          // ),
-          // SliverToBoxAdapter(
-          //   child: Container(
-          //     padding: const EdgeInsets.all(20.0),
-          //     child: PostosCarrousel(),
-          //   ),
-          // ),
         ],
       ),
-      // body: Column(
-      //   children: <Widget>[
-      //     ClipPath(
-      //       clipper: MyClipper(),
-      //       child: Container(
-      //         padding: EdgeInsets.only(left: 40, top: 50, right: 20),
-      //         height: 250,
-      //         width: double.infinity,
-      //         decoration: BoxDecoration(
-      //           gradient: LinearGradient(
-      //             begin: Alignment.topRight,
-      //             end: Alignment.bottomLeft,
-      //             colors: [
-      //               Color(0xFF366D83),
-      //               Color(0xFF5CE1E6),
-      //               Color(0xFF261C19),
-      //             ],
-      //           ),
-      //         ),
-      //         child: Row(
-      //           mainAxisAlignment: MainAxisAlignment.end,
-      //           // crossAxisAlignment: CrossAxisAlignment.end,
-      //           children: <Widget>[
-      //             Center(
-      //               child: StreamBuilder<QuerySnapshot>(
-      //                 stream:
-      //                     Firestore.instance.collection('usuario').snapshots(),
-      //                 builder: (context, snapshot) {
-      //                   if (!snapshot.hasData) {
-      //                     return new Text("Loading");
-      //                   }
-      //                   var userDocument = snapshot.data.documents;
-      //                   print(userDocument.length);
-      //                   return Text(userDocument[0]['nome']);
-      //                 },
-      //               ),
-      //             ),
-      //             IconButton(
-      //               icon: const Icon(Icons.notifications_none),
-      //               iconSize: 28.0,
-      //               onPressed: () {},
-      //             ),
-      //           ],
-      //         ),
-      //       ),
-      //     ),
-      //   ],
-      // ),
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,
         index: 1,
