@@ -11,6 +11,15 @@ class PostosCarrousel extends StatefulWidget {
 class _PostosCarrouselState extends State<PostosCarrousel> {
   int km = 1;
 
+  Text _buildRatingStars(int rating) {
+    String stars = '';
+    for (int i = 0; i < rating; i++) {
+      stars += '⭐️ ';
+    }
+    stars.trim();
+    return Text(stars);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -86,7 +95,7 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                       Positioned(
                         bottom: 15.0,
                         child: Container(
-                          height: 120.0,
+                          height: 140.0,
                           width: 210.0,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -98,13 +107,18 @@ class _PostosCarrouselState extends State<PostosCarrousel> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Icon(Icons.local_gas_station),
-                                Text(
-                                  posto.nome,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                Column(
+                                  children: <Widget>[
+                                    Icon(Icons.local_gas_station),
+                                    _buildRatingStars(posto.avaliacao.round()),
+                                    Text(
+                                      posto.nome,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Text(
                                   'Rodovia: ${posto.rodovia}, ${posto.km.toString()}',

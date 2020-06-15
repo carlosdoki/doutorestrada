@@ -60,7 +60,8 @@ flutter:
     - assets/google_logo.png
     - assets/doutorestrada.png
     - assets/PPD.jpeg
-    - assets/gastro_success.flr
+    - assets/truck_check.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

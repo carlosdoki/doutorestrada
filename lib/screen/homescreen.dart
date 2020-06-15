@@ -71,6 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                   Container(
                     child: Row(
                       children: <Widget>[
@@ -93,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: TextField(
                             textAlign: TextAlign.start,
                             decoration: InputDecoration.collapsed(
-                              hintText: 'Origem',
+                              hintText: ' Origem',
                             ),
                             style: TextStyle(
                               fontSize: 20.0,
@@ -122,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: TextField(
                             textAlign: TextAlign.start,
                             decoration: InputDecoration.collapsed(
-                              hintText: 'Destino',
+                              hintText: ' Destino',
                             ),
                             style: TextStyle(
                               fontSize: 20.0,

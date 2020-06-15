@@ -14,21 +14,21 @@ List<TransactionModel> transactions = transactionData
 
 var transactionData = [
   {
-    "name": "Posto 1",
+    "name": "POSTO SOL DA DUTRA",
     "photo": "assets/images/uber_photo.png",
     "date": "1st Apr 2020",
-    "amount": "-\$35.214"
+    "amount": "9"
   },
   {
-    "name": "Nike Outlet",
+    "name": "Posto Serras",
     "photo": "assets/images/nike_photo.png",
     "date": "30th Mar 2020",
-    "amount": "-\$100.00"
+    "amount": "5"
   },
   {
-    "name": "Payment Received",
+    "name": "Posto Barnabes",
     "photo": "assets/images/user_photo.png",
     "date": "15th Mar 2020",
-    "amount": "+\$250.00"
+    "amount": "1"
   }
 ];
